@@ -1,23 +1,20 @@
 import React from 'react';
+import { Text, View, Image } from "react-native";
 
-import {
-    Text,
-    View,
-    Image,
-    TouchableOpacity,
-    TouchableOpacityProps
-} from "react-native";
+//efito que o buttom recebe no determidado tipo de aparelho
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler'; 
 
+//imagens & estilos
 import DiscordIcon from "../../assets/discord.png"
 import { styles } from './styles';
 
-type Props = TouchableOpacityProps & {
+type Props = RectButtonProps & {
     title: string,
 }
 
 export function ButtonIcon({title, ...rest} : Props )  {
     return (
-        <TouchableOpacity 
+        <RectButton 
             style={styles.container}
             {...rest}   
         >
@@ -30,6 +27,6 @@ export function ButtonIcon({title, ...rest} : Props )  {
             <Text style={styles.title}>
                 {title}
             </Text>
-        </TouchableOpacity>
+        </RectButton>
     );
 }
