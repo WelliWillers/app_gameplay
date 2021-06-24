@@ -19,7 +19,7 @@ export function Profile(){
                     </Text>
 
                     <Text style={styles.username}>
-                        Wellington willers
+                        Wellington
                     </Text>
 
                 </View>
