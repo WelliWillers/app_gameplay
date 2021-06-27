@@ -4,9 +4,21 @@ import { View } from "react-native";
 //estilos
 import { styles } from './styles';
 
-export function ListDivider()  {
+type Props = {
+    isCenter?: boolean;
+}
+
+export function ListDivider({isCenter}: Props)  {
 
     return (
-        <View style={styles.container} />
+        <View style={[
+            styles.container,
+            isCenter ? {
+                marginVertical: 12 
+            } : {
+                marginTop: 2,
+                marginBottom: 31
+            }
+        ]} />
     );
 }

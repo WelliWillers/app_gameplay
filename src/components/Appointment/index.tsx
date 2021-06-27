@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 import { RectButton, RectButtonProps} from "react-native-gesture-handler";
 
 //lista de categorias
@@ -7,23 +8,17 @@ import { categories } from '../../utils/categories';
 
 //componentes
 import { GuildIcon } from '../GuildIcon';
+import { GuildProps } from '../Guild';
 
 //estilos
 import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 import PlayerSvg from '../../assets/player.svg'
 import CalendarSvg from '../../assets/calendar.svg'
-import { theme } from '../../global/styles/theme';
-
-export type GuildPorps = {
-    id: string,
-    name: string,
-    icon: null,
-    owner: boolean
-}
 
 export type AppointmentsProps = {
     id: string,
-    guild: GuildPorps,
+    guild: GuildProps,
     category: string,
     date: string,
     description: string,
@@ -37,12 +32,17 @@ export function Appointment({data, ...rest}: Props)  {
 
     const [category] = categories.filter(item => item.id === data.category);
     const {owner} = data.guild;
-    const {primary, on} = theme.colors;
+    const {primary, on, secondary70, secondary50} = theme.colors;
 
     return (
         <RectButton {...rest}>
-            <View style={styles.container}>
-                <GuildIcon />
+            <View style={styles.container} >
+                <LinearGradient 
+                    style={styles.guildIconContainer}
+                    colors={[secondary50, secondary70]}
+                >
+                    <GuildIcon />
+                </LinearGradient>
 
                 <View style={styles.content}>
                     <View style={styles.header}>

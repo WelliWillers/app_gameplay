@@ -1,25 +1,24 @@
 import React from 'react';
 import { View, Text } from "react-native";
-import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
 //estilos
 import { styles } from './styles';
 
 type Props = {
-    title: string,
-    subtitle: string,
-    
+    title: string;
+    subtitle: string;
 }
-
-export function ListHeader({title, subtitle}: Props)  {
+  
+export function ListHeader({title, subtitle }: Props) {
     return (
-        <View style={styles.container}> 
+        <View style={styles.container}>
             <Text style={styles.title}>
-                {title}
+                { title }
             </Text>
+    
             <Text style={styles.subtitle}>
-                {subtitle}
+                { subtitle }
             </Text>
         </View>
-    );
+    )
 }
