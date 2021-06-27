@@ -21,14 +21,13 @@ import { AuthProvider } from './src/hooks/auth';
 LogBox.ignoreLogs(['ou are not currently signed in to Expo on your development machine.']);
 
 export default function App(){
-
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
     Rajdhani_500Medium,
     Rajdhani_700Bold
   });
-
+  
   if (!fontsLoaded) {
     <AppLoading />
   } 

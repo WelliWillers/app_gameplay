@@ -2,11 +2,15 @@ import React, {
     createContext,
     useContext,
     useState,
-    ReactNode
+    ReactNode,
+    useEffect,
 } from 'react';
 
 //autenticação
 import * as AuthSession from 'expo-auth-session';
+import  AsyncStorage from '@react-native-async-storage/async-storage';
+import {COLLETION_USER} from '../configs/database';
+
 
 const {SCOPE} = process.env; 
 const {CLIENT_ID} = process.env; 
@@ -29,6 +33,7 @@ type AuthContextData = {
     user: User;
     loading: Boolean;
     signIn: () => Promise<void>;
+    singOut: () => Promise<void>;
 }
 
 type AuthProviderProps = {
@@ -67,11 +72,13 @@ function AuthProvider({ children }: AuthProviderProps) {
                 const firstName = userInfo.data.username.split(' ')[0];
                 userInfo.data.avatar = `${CDN_IMAGE}/avatars/${userInfo.data.id}/${userInfo.data.avatar}.png`;
                 
-                setUser({
+                const userData = {
                     ...userInfo.data,
                     firstName,
                     token: params.access_token
-                });
+                }
+                await AsyncStorage.setItem(COLLETION_USER,JSON.stringify(userData));
+                setUser( userData );
             }
         } catch {
             throw new Error('Não foi possível autenticar');
@@ -80,11 +87,33 @@ function AuthProvider({ children }: AuthProviderProps) {
         }
     }
 
+    async function loadUserData() {
+        const storage = await AsyncStorage.getItem(COLLETION_USER);
+        
+        if(storage){
+            const userLogged = JSON.parse(storage) as User;
+
+            api.defaults.headers.authorization = `Bearer ${userLogged.token}`;
+
+            setUser(userLogged);
+        }
+    }
+
+    useEffect(() => {
+        loadUserData();
+    }, [])
+
+    async function singOut() {
+        setUser({} as User);
+        await AsyncStorage.removeItem(COLLETION_USER);
+    }
+
     return (
         <AuthContext.Provider value={{
             user,
             loading,
-            signIn
+            signIn,
+            singOut
         }}> 
             {children}
         </AuthContext.Provider>

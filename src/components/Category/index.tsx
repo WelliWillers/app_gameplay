@@ -10,7 +10,7 @@ import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
 
 type Props = RectButtonProps & {
-    title: string,
+    title?: string,
     icon: React.FC<SvgProps>,
     hasCheckBox?: Boolean, 
     checked?: Boolean

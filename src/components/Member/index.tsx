@@ -8,7 +8,7 @@ import { Avatar } from "../Avatar";
 //estilos
 import { styles } from './styles';
 
-type MemberProps = {
+export type MemberProps = {
     id: string;
     username: string;
     avatar_url: string;
