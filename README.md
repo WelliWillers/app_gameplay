@@ -3,7 +3,7 @@
   
   
   <p>
-    
+      Gameplay é uma plicativo desenvolvido durante a 6ª edição de Next Level Week.
   </p>
   
   <h4> 
@@ -31,14 +31,37 @@
   <h1> :purple_circle: Tecnologias usadas</h1>
  </div>
  
-- []()
+ - [x] React Native
+ - [x] Typescript
+ - [x] Expo
+ - [x] Context API
+ - [x] Async Storage
+ - [x] Vector Icons
+ - [x] React Native Svg e Svg Transform
+ - [x] Axios
+ - [x] Gradient colors
+ - [x] OAuth2 Discord
+ - [x] Expo Google Fonts
+ - [x] React Navigation Stack
+ - [x] React Native Gesture Handler
+ - [x] Expo Authentication
+ - [x] React Native Share
+ - [x] Deep Link
 
 
 <div id="features"> 
   <h1>:purple_circle: Features</h1>
 </div>
 
-- [ ] ...
+- [x] Autenticação Social OAuth2 com servidor do Discord.
+- [x] Obtém perfil do usuário cadastro no Discord (username e avatar);
+- [x] Lista os servidores do Discord que o usuário faz parte;
+- [x] Permite realizar o agendamento de partidas;
+- [x] Permite filtrar as partidas por categoria;
+- [x] Exibe se a partida foi agendada em um servidor próprio (anfitrião) ou em servidores de outros (convidado);
+- [x] Compartilha o convite para ingressar no servidor do usuário;
+- [x] Permite redirecionar o usuário para o seu próprio servidor;
+- [x] Disponibiliza a função de Logout.
 
 
 <div id="requisitos"> 
@@ -71,6 +94,15 @@ $ expo start
 -> Apple Store = https://apps.apple.com/br/app/expo-go/id982107779
 -> Play Store = https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR&gl=US
 ```
+Lembre-se de criar o seu App no servidor do Discord para obter as credencias de autenticação. Em seguida, defina no arquivo .env as configurações do seu App (remova o example do arquivo [.env.example](https://github.com/WelliWillers/app_gameplay/blob/main/.env.example)).
+```
+REDIRECT_URI=
+SCOPE=
+RESPONSE_TYPE=
+CLIENT_ID=
+CDN_IMAGE=
+```
+
 
 <div id="screenshots"> 
   <h1>:purple_circle: Prints de tela</h1>
