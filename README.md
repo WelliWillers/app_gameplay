@@ -1,6 +1,7 @@
 <div id="sobre"> 
   <h1>:purple_circle: Gameplay</h1>
   
+  <img src="https://raw.githubusercontent.com/WelliWillers/portfolio/master/public/img/capagameplay.png" alt="capa gameplay">
   
   <p>
       Gameplay é uma plicativo desenvolvido durante a 6ª edição de Next Level Week.
